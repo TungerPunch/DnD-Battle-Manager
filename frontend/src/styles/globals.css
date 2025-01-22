@@ -1,0 +1,210 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Light theme (default) */
+  --color-bg-primary: #F5F5DC;  /* beige */
+  --color-bg-secondary: #FFFFFF;
+  --color-bg-hover: #F5F5DC;  /* beige */
+  --color-text-primary: #2F4F4F; /* slate-gray */
+  --color-text-secondary: rgba(47, 79, 79, 0.6); /* slate-gray with opacity */
+  --color-border: rgba(47, 79, 79, 0.2);
+  --color-accent: #FFD700; /* gold */
+  --color-accent-hover: #F4C430;
+  --color-bg-error: #fff5f5;
+
+  /* Light theme (Day mode) */
+  .light-theme {
+    --color-primary-button: #4a5568;
+    --color-primary-button-text: #ffffff;
+    --color-secondary-button: #2d3748;
+    --color-secondary-button-text: #ffffff;
+    /* ... other variables ... */
+  }
+}
+
+[data-theme='dark'] {
+  --color-bg-primary: #0F0F0F;    /* Very dark, almost black background */
+  --color-bg-secondary: #1A1A1A;  /* Slightly lighter dark */
+  --color-bg-hover: #2A2A2A;      /* Hover state for dark theme */
+  --color-text-primary: #E8D5B5;  /* Warm parchment-like text */
+  --color-text-secondary: rgba(232, 213, 181, 0.7);  /* Parchment with opacity */
+  --color-border: rgba(232, 213, 181, 0.15);  /* Subtle warm borders */
+  --color-accent: #B4924C;        /* Antique bronze */
+  --color-accent-hover: #C9AA6B;  /* Lighter antique bronze on hover */
+  --color-bg-error: #742a2a;
+}
+
+@layer base {
+  body {
+    @apply font-roboto;
+    background-color: var(--color-bg-primary);
+    color: var(--color-text-primary);
+  }
+
+  h1 {
+    @apply font-cinzel text-4xl font-bold;
+  }
+  h2 {
+    @apply font-cinzel text-3xl font-semibold;
+  }
+  h3 {
+    @apply font-cinzel text-xl font-medium;
+  }
+}
+
+@layer components {
+  .btn-primary, .btn-secondary, .btn-tertiary {
+    /* Common Base Styles */
+    @apply px-6 py-3 font-roboto font-semibold rounded-lg transition-all duration-200 ease-in-out 
+    cursor-pointer tracking-wider uppercase text-sm;
+    color: var(--color-text-primary);
+    background: var(--color-bg-secondary);
+  }
+
+  .btn-primary {
+    border: 2px solid var(--color-primary);
+    box-shadow: var(--shadow-md);
+  }
+
+  .btn-primary:hover {
+    background: var(--color-primary-light);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .btn-secondary {
+    border: 2px solid var(--color-border);
+    box-shadow: var(--shadow-md);
+  }
+
+  .btn-secondary:hover {
+    background: var(--color-primary-light);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .btn-tertiary {
+    border: 1px solid var(--color-border);
+  }
+
+  .btn-tertiary:hover {
+    background: var(--color-primary-light);
+    box-shadow: var(--shadow-sm);
+  }
+
+  /* Disabled State */
+  .btn-primary:disabled,
+  .btn-secondary:disabled,
+  .btn-tertiary:disabled {
+    background: var(--color-button-disabled);
+    color: var(--color-button-disabled-text);
+    border-color: var(--color-button-disabled);
+    cursor: not-allowed;
+    box-shadow: none;
+  }
+
+  /* Focus states */
+  .btn-primary:focus,
+  .btn-secondary:focus,
+  .btn-tertiary:focus {
+    @apply outline-none ring-2 ring-offset-2;
+    ring-color: var(--color-primary);
+  }
+
+  .input-field {
+    @apply w-full px-4 py-2 rounded-lg border border-[var(--color-border)]
+    bg-[var(--color-bg-secondary)] text-[var(--color-text-primary)]
+    focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)];
+  }
+
+  /* Button base styles */
+  .btn-primary {
+    @apply px-4 py-2 rounded-lg font-medium transition-colors duration-200;
+    background-color: var(--color-primary-button);
+    color: var(--color-primary-button-text);
+  }
+
+  .btn-secondary {
+    @apply px-4 py-2 rounded-lg font-medium transition-colors duration-200;
+    background-color: var(--color-secondary-button);
+    color: var(--color-secondary-button-text);
+  }
+}
+
+.bg-parchment {
+  background-color: #F5E6D3;
+  background-image: 
+    linear-gradient(rgba(255,255,255,.2) 2px, transparent 2px),
+    linear-gradient(90deg, rgba(255,255,255,.2) 2px, transparent 2px);
+  background-size: 50px 50px;
+}
+
+.font-medieval {
+  font-family: 'Merriweather', serif;
+}
+
+.ReactModal__Overlay {
+  background-color: rgba(0, 0, 0, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ReactModal__Content {
+  background-color: var(--color-bg-secondary) !important;
+  color: var(--color-text-primary) !important;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  max-width: 400px;
+  width: 100%;
+  border: 1px solid var(--color-border) !important;
+}
+
+/* Add these styles to your globals.css */
+input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid var(--color-border);
+  border-radius: 0.25rem;
+  background-color: var(--color-bg-secondary);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+input[type="checkbox"]:checked {
+  background-color: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+input[type="checkbox"]:checked::after {
+  content: '';
+  width: 0.375rem;
+  height: 0.375rem;
+  position: absolute;
+  background-color: var(--color-bg-secondary);
+  border-radius: 0.125rem;
+}
+
+input[type="checkbox"]:focus {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+input[type="checkbox"]:hover {
+  border-color: var(--color-accent);
+}
+
+:root[data-theme="dark"] .btn-primary,
+:root[data-theme="dark"] .btn-secondary,
+:root[data-theme="dark"] .btn-tertiary {
+  /* Dark Theme Button Styles */
+  color: var(--color-bg-secondary);
+  background: var(--color-text-primary);
+  /* Other existing styles remain unchanged */
+}

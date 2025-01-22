@@ -1,0 +1,6 @@
+openai
+requests
+langsmith 
+langchain
+langchain-openai
+python-dotenv

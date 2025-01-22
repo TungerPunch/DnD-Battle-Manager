@@ -1,0 +1,27 @@
+:root[data-theme="light"] {
+  --color-wood: #d4a373;
+  --color-wood-border: #a87d51;
+  --color-water: rgba(59, 130, 246, 0.5);
+  --color-water-border: rgba(37, 99, 235, 0.5);
+  --color-wall: #78716c;
+  --color-wall-border: #57534e;
+  --color-crate: #b45309;
+  --color-crate-border: #92400e;
+  --color-map-bg: rgba(59, 130, 246, 0.1);
+  --color-grid-border: rgba(0, 0, 0, 0.1);
+  --color-grid: rgba(0, 0, 0, 0.1);
+}
+
+:root[data-theme="dark"] {
+  --color-wood: #92400e;
+  --color-wood-border: #78350f;
+  --color-water: rgba(29, 78, 216, 0.5);
+  --color-water-border: rgba(30, 58, 138, 0.5);
+  --color-wall: #292524;
+  --color-wall-border: #1c1917;
+  --color-crate: #854d0e;
+  --color-crate-border: #713f12;
+  --color-map-bg: rgba(30, 58, 138, 0.2);
+  --color-grid-border: rgba(255, 255, 255, 0.1);
+  --color-grid: rgba(255, 255, 255, 0.1);
+} 
