@@ -1,4 +1,4 @@
-# DndBattleManager
+
 # DnD Battle Manager
 
 DnD Battle Manager — это инструмент для автоматизации игрового процесса битв в "Dungeons & Dragons". 
